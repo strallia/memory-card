@@ -1,5 +1,7 @@
-function Card( {
+function Card() {
+  return (
 
-})
+  );
+}
 
 export {Card};

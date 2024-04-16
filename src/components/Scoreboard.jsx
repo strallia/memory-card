@@ -1,5 +1,6 @@
-function Scoreboard( {
+function Scoreboard() {
+  return (
 
-})
-
+  );
+}
 export {Scoreboard};

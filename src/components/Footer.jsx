@@ -1,5 +1,5 @@
-function Footer( {
+function Footer() {
+  return null;
+}
 
-})
-
-export {Footer};
+export { Footer };

@@ -1,5 +1,5 @@
-function GameTable( {
+function GameTable() {
+  return null;
+}
 
-})
-
-export {GameTable};
+export { GameTable };
