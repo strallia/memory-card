@@ -1,0 +1,5 @@
+function GameTable( {
+
+})
+
+export {GameTable};
