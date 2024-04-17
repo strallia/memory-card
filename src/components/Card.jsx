@@ -1,7 +1,3 @@
-function Card() {
-  return (
-
-  );
-}
-
-export {Card};
+export const Card = ({ url }) => {
+  return <img src={url} />;
+};
