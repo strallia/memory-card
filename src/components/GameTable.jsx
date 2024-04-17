@@ -1,11 +1,14 @@
-function GameTable({ imageURLs }) {
-  return (
-    <>
-      {imageURLs.map((url, index) => {
-        return <img key={index} src={url} />;
-      })}
-    </>
-  );
-}
+import { Scoreboard } from "./Scoreboard";
 
-export { GameTable };
+export const GameTable = ({ imageURLs }) => {
+  return (
+    <main>
+      <Scoreboard />
+      <div className="cards">
+        {imageURLs.map((url, index) => {
+          return <img key={index} src={url} />;
+        })}
+      </div>
+    </main>
+  );
+};
