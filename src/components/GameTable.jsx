@@ -24,6 +24,7 @@ export const GameTable = () => {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
+  // fetch images for cards
   useEffect(() => {
     const allFetchedImageURLs = pokemonNames.map((pokemon) =>
       fetch(`${baseURL}/${pokemon}`, { mode: "cors" })
@@ -40,8 +41,10 @@ export const GameTable = () => {
   }, []);
 
   const handleCardClick = (cardID) => {
+    // update scoreboard values and record of previously clicked cards
     const hasCardBeenClicked = clickedCardIDs.includes(cardID);
     if (hasCardBeenClicked) {
+      if (score > bestScore) setBestScore(score);
       clickedCardIDs = [];
       setScore(0);
     } else {
