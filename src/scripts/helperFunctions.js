@@ -11,4 +11,11 @@ const shuffle = (arr) => {
   return shuffledArr;
 };
 
-export { shuffle };
+const createCard = (imageURL) => {
+  return {
+    id: crypto.randomUUID(),
+    imageURL,
+  };
+};
+
+export { shuffle, createCard };

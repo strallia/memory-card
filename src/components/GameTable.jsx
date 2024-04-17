@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Scoreboard } from "./Scoreboard";
 import { Card } from "./Card";
-import { shuffle } from "../scripts/helperFunctions";
+import { shuffle, createCard } from "../scripts/helperFunctions";
 
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const pokemonNames = [
@@ -17,8 +17,10 @@ const pokemonNames = [
   "gardevoir",
 ];
 
+let clickedCardIDs = [];
+
 export const GameTable = () => {
-  const [imageURLs, setImageURLs] = useState([]);
+  const [cards, setCards] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
@@ -29,24 +31,32 @@ export const GameTable = () => {
     Promise.all(allFetchedImageURLs)
       .then((results) => Promise.all(results.map((r) => r.json())))
       .then((results) => {
-        const updatedImageURLs = results.map(
-          (result) => result.sprites.front_default
-        );
-        setImageURLs(updatedImageURLs);
+        const updatedCards = results.map((result) => {
+          const imageURL = result.sprites.front_default;
+          return createCard(imageURL);
+        });
+        setCards(updatedCards);
       });
   }, []);
 
-  const handleCardClick = () => {
-    setScore((score) => score + 1);
-    setImageURLs(shuffle(imageURLs));
+  const handleCardClick = (cardID) => {
+    const hasCardBeenClicked = clickedCardIDs.includes(cardID);
+    if (hasCardBeenClicked) {
+      clickedCardIDs = [];
+      setScore(0);
+    } else {
+      setScore((score) => score + 1);
+      clickedCardIDs.push(cardID);
+    }
+    setCards(shuffle(cards));
   };
 
   return (
     <main>
       <Scoreboard score={score} bestScore={bestScore} />
       <div className="cards__container">
-        {imageURLs.map((url, index) => (
-          <Card key={index} url={url} handleCardClick={handleCardClick} />
+        {cards.map((card) => (
+          <Card key={card.id} card={card} handleCardClick={handleCardClick} />
         ))}
       </div>
     </main>

@@ -1,7 +1,7 @@
-export const Card = ({ url, handleCardClick }) => {
+export const Card = ({ card, handleCardClick }) => {
   return (
     <span className="card">
-      <img src={url} onClick={handleCardClick} />
+      <img src={card.imageURL} onClick={() => handleCardClick(card.id)} />
     </span>
   );
 };
