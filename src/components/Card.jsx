@@ -1,3 +1,3 @@
-export const Card = ({ url }) => {
-  return <img src={url} />;
+export const Card = ({ url, handleCardClick }) => {
+  return <img src={url} onClick={handleCardClick} />;
 };

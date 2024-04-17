@@ -1,9 +1,4 @@
-import { useState } from "react";
-
-export const Scoreboard = () => {
-  const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
-
+export const Scoreboard = ({ score, bestScore }) => {
   return (
     <div className="scoreboard">
       <p className="scoreboard__score">Score: {score}</p>
