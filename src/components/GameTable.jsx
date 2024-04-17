@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Scoreboard } from "./Scoreboard";
 import { Card } from "./Card";
+import { shuffle } from "../scripts/helperFunctions";
 
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const pokemonNames = [
@@ -35,13 +36,18 @@ export const GameTable = () => {
       });
   }, []);
 
+  const handleCardClick = () => {
+    setScore((score) => score + 1);
+    setImageURLs(shuffle(imageURLs));
+  };
+
   return (
     <main>
       <Scoreboard score={score} bestScore={bestScore} />
-      <div className="cards">
-        {imageURLs.map((url, index) => {
-          return <Card key={index} url={url} />;
-        })}
+      <div className="cards__container">
+        {imageURLs.map((url, index) => (
+          <Card key={index} url={url} handleCardClick={handleCardClick} />
+        ))}
       </div>
     </main>
   );
