@@ -1,6 +1,6 @@
-# CMemory Card
+# Memory Card
 
-<!-- [Live Demo]() -->
+[Live Demo](https://silver-starlight-8debcf.netlify.app/)
 
 ## Purpose
 
