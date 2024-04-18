@@ -6,15 +6,15 @@ import { shuffle, createCard } from "../scripts/helperFunctions";
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const pokemonNames = [
   "pikachu",
-  "charizard",
+  "jigglypuff",
   "squirtle",
   "charmander",
-  "lucario",
-  "dragonite",
+  "dratini",
+  "piplup",
   "umbreon",
   "eevee",
-  "blastoise",
-  "gardevoir",
+  "minccino",
+  "turtwig",
 ];
 
 let clickedCardIDs = [];
@@ -55,7 +55,7 @@ export const GameTable = () => {
   };
 
   return (
-    <main>
+    <main className="game-table">
       <Scoreboard score={score} bestScore={bestScore} />
       <div className="cards__container">
         {cards.map((card) => (

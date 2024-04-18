@@ -1,9 +1,9 @@
 function Header() {
   return (
-    <header>
-      <h1>Memory Card</h1>
-      <p>
-        Get points by clicking a card but don&apos;t click on one anymore than
+    <header className="header">
+      <h1 className="header__title">Memory Card</h1>
+      <p className="header__subtitle">
+        Get points by clicking a card but don&apos;t click one anymore than
         once!
       </p>
     </header>
