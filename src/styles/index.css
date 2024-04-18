@@ -52,6 +52,7 @@ body {
   gap: 30px;
   flex-wrap: wrap;
   place-content: center;
+  max-width: 1000px;
 }
 .card {
   width: 150px;
